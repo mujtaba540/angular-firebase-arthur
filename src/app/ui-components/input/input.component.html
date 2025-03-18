@@ -1,0 +1,15 @@
+<mat-form-field class="w-100">
+    <mat-label>{{label()}}</mat-label>
+    @if (type() === 'textarea') {
+    <textarea matInput [type]="type()" [formControl]="controlName()" [placeholder]="placeholder()"></textarea>
+    }@else {
+    <input matInput [type]="type()" [formControl]="controlName()" [placeholder]="placeholder()" />
+    }
+    @if (controlName() && controlName().invalid && controlName().touched) {
+    <mat-error>@for (item of controlName().errors | keyvalue; track $index) {
+        *{{errorMessages[item.key](label())}}
+        }</mat-error>
+
+    }
+
+</mat-form-field>

@@ -1,0 +1,12 @@
+<table class="table">
+    <tbody>
+        @for (item of getRowArray(); track $index) {
+        <tr>
+            @for (el of getColumnsArray(); track $index) {
+            <td><span class="placeholder col-10"></span>
+            </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>

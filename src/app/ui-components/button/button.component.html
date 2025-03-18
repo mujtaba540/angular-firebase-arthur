@@ -1,0 +1,13 @@
+<button mat-button [ngClass]="setBtnType()" (click)="clickAction()" [disabled]="disabled()">
+    <span class="hstack gap-2">
+        @if(loader()){
+        <div class="spinner-border spinner-border-sm" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        }
+        @if(icon()){
+        <mat-icon>{{icon()}}</mat-icon>
+        }
+        {{label()}}
+    </span>
+</button>

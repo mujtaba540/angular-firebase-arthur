@@ -1,0 +1,20 @@
+<span class="w-100 hstack align-items-end flex-row-reverse p-2">
+    <app-button [icon]="'close'" [matButtonType]="'basic'" (onClick)="closeModal()" />
+</span>
+
+<h2 mat-dialog-title>Create Message</h2>
+<form [formGroup]="messageForm">
+    <mat-dialog-content>
+        <div class="vstack gap-3">
+            <app-input [controlName]="getFormControl('email')" [label]="'Email'" [type]="'email'" />
+            <app-input [controlName]="getFormControl('message')" [label]="'Message'" [type]="'textarea'" />
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <div class="hstack gap-2">
+            <app-button [label]="'Close'" (onClick)="closeModal()" [matButtonType]="'basic'" />
+            <app-button [label]="'Create'" (onClick)="onSubmit()" [disabled]="!messageForm.valid"
+                [matButtonType]="'flat'" [loader]="(isLoading$| async) || false"  />
+        </div>
+    </mat-dialog-actions>
+</form>
